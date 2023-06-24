@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 16:04:38 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/20 19:25:39 by aceauses         ###   ########.fr       */
+/*   Created: 2023/06/22 10:58:58 by aceauses          #+#    #+#             */
+/*   Updated: 2023/06/22 11:17:59 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_error(void)
+void	free_mem(t_node **mem)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	int	i;
+
+	i = 0;
+	while (mem[i])
+	{
+		free(mem[i]);
+		i++;
+	}
+	free(mem);
 }

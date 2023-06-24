@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aceauses <aceauses@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 16:04:38 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/20 19:25:39 by aceauses         ###   ########.fr       */
+/*   Created: 2023/03/14 15:57:07 by aceauses          #+#    #+#             */
+/*   Updated: 2023/03/20 18:44:13 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	ft_error(void)
+int	ft_isprint(int i)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	if (i >= 32 && i <= 126)
+	{
+		return (1);
+	}
+	return (0);
 }

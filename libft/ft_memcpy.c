@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aceauses <aceauses@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 16:04:38 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/20 19:25:39 by aceauses         ###   ########.fr       */
+/*   Created: 2023/03/16 11:25:55 by aceauses          #+#    #+#             */
+/*   Updated: 2023/03/23 14:55:51 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	ft_error(void)
+void	*ft_memcpy(void *to, const void *from, size_t n)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	unsigned int	i;
+
+	i = 0;
+	if (to == NULL && from == NULL)
+		return (NULL);
+	while (i < n)
+	{
+		((char *)to)[i] = ((const char *)from)[i];
+		i++;
+	}
+	return (to);
 }

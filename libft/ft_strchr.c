@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aceauses <aceauses@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 16:04:38 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/20 19:25:39 by aceauses         ###   ########.fr       */
+/*   Created: 2023/03/18 16:06:25 by aceauses          #+#    #+#             */
+/*   Updated: 2023/03/21 18:56:39 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	ft_error(void)
+char	*ft_strchr(const char *str, int c)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	char	cr;
+
+	cr = (char)c;
+	while (*str != '\0')
+	{
+		if (*str == cr)
+			return ((char *)str);
+		str++;
+	}
+	while (cr == '\0')
+		return ((char *)str);
+	return (NULL);
 }

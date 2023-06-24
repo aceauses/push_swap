@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putnmbr_un.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 11:38:31 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/24 17:15:30 by aceauses         ###   ########.fr       */
+/*   Created: 2023/04/22 15:04:46 by aceauses          #+#    #+#             */
+/*   Updated: 2023/05/08 16:30:57 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+static int	ft_unbr_base_len(unsigned long index, size_t base)
 {
-	t_node		*a;
+	size_t	i;
 
-	if (argc < 2)
-		ft_error();
-	a = ft_process(argc, argv);
-	if (ft_check_double(a))
+	i = 1;
+	while (index >= (unsigned long int)base)
 	{
-		ft_lst_delone(a);
-		ft_error();
+		index = index / base;
+		i++;
 	}
-	if (!ft_is_sort(a))
+	return (i);
+}
+
+int	ft_putnmbr_un(unsigned int n)
+{
+	unsigned int		nmbr_len;
+
+	nmbr_len = 0;
+	if (n >= 10)
 	{
-		ft_stort(a);
+		ft_putnmbr_un(n / 10);
+		ft_putnmbr_un(n % 10);
 	}
-	return (0);
+	else
+		ft_putchar(n + 48);
+	nmbr_len += ft_unbr_base_len(n, 10);
+	return (nmbr_len);
 }

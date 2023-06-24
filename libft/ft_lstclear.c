@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aceauses <aceauses@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 16:04:38 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/20 19:25:39 by aceauses         ###   ########.fr       */
+/*   Created: 2023/04/10 10:39:33 by aceauses          #+#    #+#             */
+/*   Updated: 2023/04/10 11:40:53 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	ft_error(void)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	t_list	*nnode;
+
+	if (lst)
+	{
+		while (*lst)
+		{
+			nnode = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = nnode;
+		}
+	}
 }

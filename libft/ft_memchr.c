@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aceauses <aceauses@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 11:38:31 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/24 17:15:30 by aceauses         ###   ########.fr       */
+/*   Created: 2023/03/18 15:45:20 by aceauses          #+#    #+#             */
+/*   Updated: 2023/04/11 16:53:25 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	t_node		*a;
+	unsigned int	i;
+	unsigned char	*ptr_str;
 
-	if (argc < 2)
-		ft_error();
-	a = ft_process(argc, argv);
-	if (ft_check_double(a))
+	ptr_str = (unsigned char *)str;
+	i = 0;
+	while (i < n)
 	{
-		ft_lst_delone(a);
-		ft_error();
+		if (ptr_str[i] == (unsigned char)c)
+			return (ptr_str + i);
+		i++;
 	}
-	if (!ft_is_sort(a))
-	{
-		ft_stort(a);
-	}
-	return (0);
+	return (NULL);
 }

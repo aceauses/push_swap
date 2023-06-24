@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aceauses <aceauses@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 16:04:38 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/20 19:25:39 by aceauses         ###   ########.fr       */
+/*   Created: 2023/03/21 14:59:30 by aceauses          #+#    #+#             */
+/*   Updated: 2023/03/23 14:52:23 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	ft_error(void)
+void	*ft_calloc(size_t count, size_t size)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	char	*memory;
+	size_t	i;
+
+	memory = malloc(count * size);
+	if (memory == NULL)
+		return (0);
+	i = 0;
+	while (i < count * size)
+	{
+		memory[i] = 0;
+		i++;
+	}
+	return (memory);
 }

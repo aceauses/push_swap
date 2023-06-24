@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 16:04:38 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/20 19:25:39 by aceauses         ###   ########.fr       */
+/*   Created: 2023/04/19 11:54:56 by aceauses          #+#    #+#             */
+/*   Updated: 2023/04/23 22:00:53 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "ft_printf.h"
 
-void	ft_error(void)
+int	ft_putstr(char *c)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	int	i;
+
+	i = 0;
+	if (!c)
+	{
+		write(1, "(null)", 6);
+		i += 6;
+	}
+	else
+	{
+		while (c[i])
+		{
+			ft_putchar(c[i]);
+			i++;
+		}
+	}
+	return (i);
 }

@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aceauses <aceauses@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 16:04:38 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/20 19:25:39 by aceauses         ###   ########.fr       */
+/*   Created: 2023/03/29 17:05:50 by aceauses          #+#    #+#             */
+/*   Updated: 2023/04/11 12:27:58 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	ft_error(void)
+t_list	*ft_lstnew(void *content)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	t_list	*nnode;
+
+	nnode = (t_list *)malloc(sizeof(t_list));
+	if (!nnode)
+		return (NULL);
+	nnode->content = content;
+	nnode->next = NULL;
+	return (nnode);
 }

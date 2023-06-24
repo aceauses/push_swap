@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aceauses <aceauses@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 11:38:31 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/24 17:15:30 by aceauses         ###   ########.fr       */
+/*   Created: 2023/03/20 15:52:32 by aceauses          #+#    #+#             */
+/*   Updated: 2023/03/29 10:04:59 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strrchr(const char *str, int c)
 {
-	t_node		*a;
+	int	len;
 
-	if (argc < 2)
-		ft_error();
-	a = ft_process(argc, argv);
-	if (ft_check_double(a))
+	len = ft_strlen(str);
+	while (len >= 0)
 	{
-		ft_lst_delone(a);
-		ft_error();
+		if (str[len] == (char )c)
+			return ((char *)str + len);
+		len--;
 	}
-	if (!ft_is_sort(a))
-	{
-		ft_stort(a);
-	}
+	if ((char) c == '\0')
+		return ((char *)str + len);
 	return (0);
 }
