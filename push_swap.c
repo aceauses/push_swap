@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:38:31 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/24 17:15:30 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/06/27 10:48:31 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,20 @@ int	main(int argc, char **argv)
 		ft_lst_delone(a);
 		ft_error();
 	}
-	if (!ft_is_sort(a))
-	{
-		ft_stort(a);
-	}
+	// while (a)
+	// {
+	// 	printf("%d\n", a->index);
+	// 	a = a->next;
+	// 	if (a->next == NULL)
+	// 	{
+	// 		printf("%d\n", a->index);
+	// 		break ;
+	// 	}
+	// }
+	ft_sort(a);
+	// if (!ft_is_sort(a))
+	// {
+	// 	ft_printf("has to be sorted\n");
+	// }
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 14:00:47 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/24 15:59:43 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:10:09 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_node
 int		main(int argc, char **argv);
 int		ft_atoi_new(const char *str);
 int		ft_check_double(t_node	*a);
+int		ft_is_sort(t_node *a);
 
 void	ft_error(void);
 void	ft_lst_add_back(t_node **lst, t_node *new);
@@ -39,6 +40,14 @@ void	ft_lst_delone(t_node *lst);
 t_node	*ft_process(int argc, char **argv);
 t_node	*ft_lst_new(int content);
 t_node	*ft_lst_last(t_node *lst);
+int		ft_lst_size(t_node *lst);
 t_node	*ft_quotes(char **argv);
+
+/*Operations*/
+void	ft_sort(t_node *a);
+void	ft_sa(t_node **a);
+void	ft_sb(t_node **b);
+void	ft_ss(t_node	**a, t_node **b);
+void	ft_pb(t_node **a, t_node **b);
 
 #endif

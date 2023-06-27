@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:06:17 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/22 11:22:59 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:11:26 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,17 @@ void	ft_lst_delone(t_node *lst)
 	{
 		free(lst);
 	}
+}
+
+int	ft_lst_size(t_node *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
