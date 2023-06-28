@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 14:00:47 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/27 15:10:09 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:20:46 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		main(int argc, char **argv);
 int		ft_atoi_new(const char *str);
 int		ft_check_double(t_node	*a);
 int		ft_is_sort(t_node *a);
+int	ft_stack_len(t_node *a);
 
 void	ft_error(void);
 void	ft_lst_add_back(t_node **lst, t_node *new);
@@ -49,5 +50,7 @@ void	ft_sa(t_node **a);
 void	ft_sb(t_node **b);
 void	ft_ss(t_node	**a, t_node **b);
 void	ft_pb(t_node **a, t_node **b);
+void	ft_pa(t_node **a, t_node **b);
+void	ft_sort_three(t_node **a);
 
 #endif

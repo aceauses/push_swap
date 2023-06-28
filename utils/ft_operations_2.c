@@ -1,39 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_operations_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 11:38:31 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/28 16:20:49 by aceauses         ###   ########.fr       */
+/*   Created: 2023/06/28 13:37:24 by aceauses          #+#    #+#             */
+/*   Updated: 2023/06/28 13:37:49 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
-{
-	t_node		*a;
-
-	if (argc < 2)
-		ft_error();
-	a = ft_process(argc, argv);
-	if (ft_check_double(a))
-	{
-		ft_lst_delone(a);
-		ft_error();
-	}
-	if (!ft_is_sort(a))
-	{
-		if (ft_lst_size(a) == 2)
-			ft_sa(&a);
-		else if (ft_lst_size(a) == 3)
-		{
-			ft_sort_three(&a);
-		}
-		else
-			ft_sort(a);
-	}
-	return (0);
-}

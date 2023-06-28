@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 09:06:08 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/27 15:09:33 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/06/28 18:06:35 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,17 @@ void	ft_pb(t_node **a, t_node **b)
 	*a = (*a)->next;
 	(*b)->next = temp;
 	ft_printf("pb\n");
+}
+
+void	ft_pa(t_node **a, t_node **b)
+{
+	t_node	*temp;
+
+	temp = *a; /*temp == NULL*/
+	*a = *b; /*Getting node of B to A*/
+	*b = (*b)->next; /*Moving B to next node*/
+	(*a)->next = temp; /*Tell that a->[second node] == NULL so we dont copy the intire node to A and just the first one*/
+	ft_printf("pa\n");
 }
 
 void	ft_ss(t_node	**a, t_node **b)
