@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   print_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 10:58:58 by aceauses          #+#    #+#             */
-/*   Updated: 2023/07/03 13:56:52 by aceauses         ###   ########.fr       */
+/*   Created: 2023/07/04 16:44:13 by aceauses          #+#    #+#             */
+/*   Updated: 2023/07/04 16:44:49 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_free(t_node **mem)
+void	print_stack(t_node *stack)
 {
-	t_node	*stack;
+	t_node	*current;
 
-	if (!mem)
-		return ;
-	while (*mem)
+	current = stack;
+	while (current != NULL)
 	{
-		stack = (*mem)->next;
-		(*mem)->index = 0;
-		free(*mem);
-		*mem = stack;
+		printf("| %d |->", current->index);
+		current = current->next;
 	}
+	printf(" NULL\n");
+}
+
+void	print_stacks(t_node *stackA, t_node *stackB)
+{
+	printf("Stack A: ");
+	print_stack(stackA);
+	printf("Stack B: ");
+	print_stack(stackB);
 }

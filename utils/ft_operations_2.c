@@ -5,8 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/28 13:37:24 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/28 13:37:49 by aceauses         ###   ########.fr       */
+/*   Created: 2023/07/03 13:39:47 by aceauses          #+#    #+#             */
+/*   Updated: 2023/07/03 13:42:23 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../push_swap.h"
+
+void	ft_rrr(t_node **a, t_node **b)
+{
+	ft_rra(a, 0);
+	ft_rrb(b, 0);
+	ft_printf("rrr\n");
+}

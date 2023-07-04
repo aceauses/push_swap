@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:47:11 by aceauses          #+#    #+#             */
-/*   Updated: 2023/05/08 16:30:51 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:33:51 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	printf_symbol(va_list args, int c)
 		print += ft_putchar(va_arg(args, int));
 	else if (c == 's')
 		print += ft_putstr(va_arg(args, char *));
-	else if (c == 'd' | c == 'i')
+	else if (c == 'd' || c == 'i')
 		print += ft_putnmbr(va_arg(args, int));
 	else if (c == 'u')
 		print += ft_putnmbr_un(va_arg(args, unsigned int));
