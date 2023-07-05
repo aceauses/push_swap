@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:47:00 by aceauses          #+#    #+#             */
-/*   Updated: 2023/05/08 16:30:44 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:46:58 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_printf(const char *str, ...);
 
 int		ft_putchar(char c);
 int		ft_putstr(char *c);
-size_t	ft_strlen(const char *str);
+size_t	ft_strlen_printf(const char *str);
 
 int		ft_put_ptr(void *p);
 int		ft_print_hex(unsigned int num, int format);

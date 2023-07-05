@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:13:59 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/21 14:19:23 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:23:52 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_atoi_new(const char *str)
 	}
 	else if (*str == '+')
 		str++;
-	while (*str)
+	while (*str >= '0' && *str <= '9')
 	{
 		if (!ft_isdigit(*str))
 			ft_error();

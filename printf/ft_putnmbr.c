@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 19:38:03 by aceauses          #+#    #+#             */
-/*   Updated: 2023/04/28 15:57:01 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:47:32 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int	ft_putnmbr(long int n)
 	}
 	else
 		write (1, &base[n], 1);
-	nmbr_len += ft_long_base_len(n, ft_strlen(base));
+	nmbr_len += ft_long_base_len(n, ft_strlen_printf(base));
 	return (nmbr_len);
 }

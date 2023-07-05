@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:07:08 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/22 10:59:23 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:20:06 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,25 @@ t_node	*ft_quotes(char **argv)
 	return (a);
 }
 
+static	void	ft_validation(char **argv, int i)
+{
+	int	count;
+
+	count = 0;
+	if (argv[i][0] == '-')
+	{
+		count++;
+		if (argv[i][count] == '\0')
+			ft_error();
+	}
+	while (argv[i][count] != '\0')
+	{
+		if (ft_isdigit(argv[i][count]) == 0)
+			ft_error();
+		count++;
+	}
+}
+
 t_node	*ft_process(int argc, char **argv)
 {
 	t_node	*a;
@@ -60,12 +79,15 @@ t_node	*ft_process(int argc, char **argv)
 
 	i = 1;
 	a = NULL;
+	if (argc < 2)
+		return (0);
 	if (argc == 2)
 		a = ft_quotes(argv);
 	else
 	{
 		while (i < argc)
 		{
+			ft_validation(argv, i);
 			j = ft_atoi_new(argv[i]);
 			ft_lst_add_back(&a, ft_lst_new(j));
 			i++;

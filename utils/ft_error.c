@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:04:38 by aceauses          #+#    #+#             */
-/*   Updated: 2023/06/20 19:25:39 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/05 14:53:34 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_error(void)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }

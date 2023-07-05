@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:38:31 by aceauses          #+#    #+#             */
-/*   Updated: 2023/07/04 12:58:58 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:02:01 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	main(int argc, char **argv)
 {
 	t_node		*a;
 
-	if (argc < 2)
-		ft_error();
 	a = ft_process(argc, argv);
 	if (ft_check_double(a))
 	{

@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 09:06:08 by aceauses          #+#    #+#             */
-/*   Updated: 2023/07/03 12:43:46 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/05 14:57:32 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ void	ft_pa(t_node **a, t_node **b)
 {
 	t_node	*temp;
 
-	temp = *a; /*temp == NULL*/
+	temp = *a; /*temp == a*/
 	*a = *b; /*Getting node of B to A*/
 	*b = (*b)->next; /*Moving B to next node*/
-	(*a)->next = temp; /*Tell that a->[second node] == NULL so we dont copy the intire node to A and just the first one*/
+	(*a)->next = temp; /*Tell that a->[second node] == temp so we dont copy the intire node to 	B and just the first one*/
 	ft_printf("pa\n");
 }
 
