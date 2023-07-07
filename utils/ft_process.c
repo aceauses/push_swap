@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:07:08 by aceauses          #+#    #+#             */
-/*   Updated: 2023/07/05 16:20:06 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:14:55 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_node	*ft_process(int argc, char **argv)
 	i = 1;
 	a = NULL;
 	if (argc < 2)
-		return (0);
+		return (NULL);
 	if (argc == 2)
 		a = ft_quotes(argv);
 	else
