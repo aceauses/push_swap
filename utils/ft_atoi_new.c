@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:13:59 by aceauses          #+#    #+#             */
-/*   Updated: 2023/07/05 15:23:52 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:53:50 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /*Check if str is not a digit*/
 int	ft_atoi_new(const char *str)
 {
-	int	sign;
-	int	number;
+	int			sign;
+	int long	number;
 
 	sign = 1;
 	number = 0;
@@ -37,5 +37,7 @@ int	ft_atoi_new(const char *str)
 		number += *str - 48;
 		str++;
 	}
+	if ((sign * number) > 2147483647 || (sign * number) < -2147483648)
+		ft_error();
 	return (number * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 14:00:47 by aceauses          #+#    #+#             */
-/*   Updated: 2023/07/05 15:40:30 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/14 13:55:04 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,16 @@ int		ft_check_double(t_node	*a);
 int		ft_is_sort(t_node *a);
 int		ft_stack_len(t_node *a);
 int		find_min(t_node **a);
+int		find_max(t_node **b);
+void	set_min(t_node **a, t_node **b);
 
-void	ft_sort_four(t_node **a);
 void	push_to_b(t_node **a, t_node **b, int location);
 void	ft_error(void);
 void	ft_lst_add_back(t_node **lst, t_node *new);
 void	ft_free(t_node **mem);
 void	ft_lst_clear(t_node **lst);
 void	ft_lst_delone(t_node *lst);
+void	ft_sort_b(t_node **b, t_node **a);
 
 t_node	*ft_process(int argc, char **argv);
 t_node	*ft_lst_new(int content);
@@ -52,7 +54,6 @@ void	print_stacks(t_node *stackA, t_node *stackB);
 void	print_stack(t_node *stack);
 
 /*Operations*/
-void	ft_sort(t_node *a);
 void	ft_sa(t_node **a, int write);
 void	ft_sb(t_node **b, int write);
 void	ft_ss(t_node	**a, t_node **b);
@@ -65,5 +66,8 @@ void	ft_rra(t_node **a, int write);
 void	ft_rrb(t_node **b, int write);
 void	ft_rrr(t_node **a, t_node **b);
 void	ft_sort_three(t_node **a);
+void	ft_sort_four(t_node **a);
+void	ft_sort_five(t_node **a);
+void	ft_sort(t_node *a);
 
 #endif

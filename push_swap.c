@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:38:31 by aceauses          #+#    #+#             */
-/*   Updated: 2023/07/06 15:15:27 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:07:10 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ int	main(int argc, char **argv)
 			ft_sort_three(&a);
 		else if (ft_lst_size(a) == 4)
 			ft_sort_four(&a);
+		else if (ft_lst_size(a) == 5)
+			ft_sort_five(&a);
 		else
 			ft_sort(a);
 	}
-	ft_free(&a);
-	return (0);
+	return (ft_free(&a), 0);
 }

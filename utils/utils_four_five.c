@@ -1,31 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_all.c                                      :+:      :+:    :+:   */
+/*   utils_four_five.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 15:19:46 by aceauses          #+#    #+#             */
-/*   Updated: 2023/07/14 17:41:47 by aceauses         ###   ########.fr       */
+/*   Created: 2023/07/13 14:50:21 by aceauses          #+#    #+#             */
+/*   Updated: 2023/07/14 17:40:53 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	find_max(t_node **b)
+void	push_to_b(t_node **a, t_node **b, int location)
+{
+	if (location == 0)
+	{
+		ft_pb(a, b);
+		return ;
+	}
+	else if (location == 1)
+		ft_sa(a, 1);
+	else if (location == 2)
+	{
+		ft_rra(a, 1);
+		ft_rra(a, 1);
+	}
+	else
+		ft_rra(a, 1);
+	if (!ft_is_sort(*a))
+		ft_pb(a, b);
+}
+
+int	find_min(t_node **a)
 {
 	t_node	*temp;
 	int		i;
 	int		loc;
 	int		max;
 
-	temp = *b;
+	temp = *a;
 	loc = 0;
 	max = 0;
-	i = (*b)->index;
+	i = (*a)->index;
 	while (temp != NULL)
 	{
-		if (temp->index > i)
+		if (temp->index < i)
 		{
 			i = temp->index;
 			loc = max;
@@ -36,32 +56,25 @@ int	find_max(t_node **b)
 	return (loc);
 }
 
-static void	do_rb(t_node **b, t_node **a, int max)
+void	set_min(t_node **a, t_node **b)
 {
-	int		i;
+	int	min;
 
-	i = 0;
-	while (i <= max)
+	min = find_min(a);
+	if (min == 4)
+		ft_rra(a, 1);
+	else if (min == 3)
 	{
-		if (i == max)
-		{
-			ft_pa(a, b);
-			return ;
-		}
-		ft_rb(b, 1);
-		i++;
+		ft_rra(a, 1);
+		if (ft_lst_size(*a) == 5)
+			ft_rra(a, 1);
 	}
-}
-
-void	ft_sort_b(t_node **b, t_node **a)
-{
-	int		i;
-	int		size;
-
-	size = ft_lst_size(*b);
-	while (ft_lst_size(*a) != size)
+	else if (min == 2)
 	{
-		i = find_max(b);
-		do_rb(b, a, i);
+		ft_ra(a, 1);
+		ft_sa(a, 1);
 	}
+	else if (min == 1)
+		ft_sa(a, 1);
+	ft_pb(a, b);
 }

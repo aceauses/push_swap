@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:41:43 by aceauses          #+#    #+#             */
-/*   Updated: 2023/07/07 17:25:06 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:44:31 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ft_sort_four(t_node **a)
 	t_node	*b;
 	int		loc;
 
+	if (ft_is_sort(*a))
+		return ;
 	b = NULL;
 	loc = find_min(a);
 	push_to_b(a, &b, loc);
@@ -46,83 +48,75 @@ void	ft_sort_four(t_node **a)
 	}
 }
 
-void	push_to_b(t_node **a, t_node **b, int location)
+void	ft_sort_five(t_node **a)
 {
-	if (location == 0)
-	{
-		ft_pb(a, b);
-		return ;
-	}
-	else if (location == 1)
-		ft_sa(a, 1);
-	else if (location == 2)
-	{
-		ft_rra(a, 1);
-		ft_rra(a, 1);
-	}
-	else
-		ft_rra(a, 1);
+	t_node	*b;
+
+	b = NULL;
+	set_min(a, &b);
 	if (!ft_is_sort(*a))
-		ft_pb(a, b);
+	{
+		set_min(a, &b);
+		ft_sort_three(a);
+	}
+	while (b)
+		ft_pa(a, &b);
 }
 
-int	find_min(t_node **a)
+static int	median(t_node *a)
 {
 	t_node	*temp;
-	int		i;
-	int		loc;
-	int		max;
+	int		median;
 
-	temp = *a;
-	loc = 0;
-	max = 0;
-	i = (*a)->index;
+	temp = a;
+	median = 0;
 	while (temp != NULL)
 	{
-		if (temp->index < i)
-		{
-			i = temp->index;
-			loc = max;
-		}
+		median += temp->index;
 		temp = temp->next;
-		max++;
 	}
-	return (loc);
+	return (median);
 }
 
-static void	ft_push_to_3(t_node **a, t_node **b)
+static void	push(t_node **a, t_node **b, int median)
 {
-	int		size;
-	int		push;
-	int		i;
+	int	pushed;
+	int	size;
+	int	i;
 
 	size = ft_lst_size(*a);
-	push = 0;
 	i = 0;
-	while (size > 6 && i < size && push < size / 2)
+	pushed = 0;
+	while (size > 6 && i < size && pushed < size / 2)
 	{
-		if ((*a)->index <= size / 2)
+		if ((*a)->index < median)
 		{
 			ft_pb(a, b);
-			push++;
+			pushed++;
 		}
 		else
 			ft_ra(a, 1);
 		i++;
 	}
-	while (size - push > 3)
+	while (size - pushed > 4)
 	{
 		ft_pb(a, b);
-		push++;
+		pushed++;
 	}
 }
 
 void	ft_sort(t_node *a)
 {
 	t_node	*b;
+	int		med;
 
 	b = NULL;
-	ft_push_to_3(&a, &b);
-	ft_sort_three(&a);
+	med = median(a) / ft_lst_size(a);
+	printf("[%d]\n", med);
+	push(&a, &b, med);
+	// while (ft_lst_size(a) != 0)
+	// 	ft_pb(&a, &b);
+	ft_sort_four(&a);
+	// ft_sort_b(&b, &a);
 	print_stacks(a, b);
 }

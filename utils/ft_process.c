@@ -6,7 +6,7 @@
 /*   By: aceauses <aceauses@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:07:08 by aceauses          #+#    #+#             */
-/*   Updated: 2023/07/06 15:14:55 by aceauses         ###   ########.fr       */
+/*   Updated: 2023/07/13 14:56:48 by aceauses         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,6 @@ int	ft_check_double(t_node	*a)
 	return (0);
 }
 
-t_node	*ft_quotes(char **argv)
-{
-	t_node	*a;
-	char	**tmp;
-	int		i;
-	int		j;
-
-	a = NULL;
-	i = 0;
-	tmp = ft_split(argv[1], ' ');
-	if (!tmp)
-		ft_error();
-	while (tmp[i])
-	{
-		j = ft_atoi_new(tmp[i]);
-		ft_lst_add_back(&a, ft_lst_new(j));
-		i++;
-	}
-	free(tmp);
-	return (a);
-}
-
 static	void	ft_validation(char **argv, int i)
 {
 	int	count;
@@ -69,6 +47,29 @@ static	void	ft_validation(char **argv, int i)
 			ft_error();
 		count++;
 	}
+}
+
+t_node	*ft_quotes(char **argv)
+{
+	t_node	*a;
+	char	**tmp;
+	int		i;
+	int		j;
+
+	a = NULL;
+	i = 0;
+	tmp = ft_split(argv[1], ' ');
+	if (!tmp)
+		ft_error();
+	while (tmp[i])
+	{
+		ft_validation(tmp, i);
+		j = ft_atoi_new(tmp[i]);
+		ft_lst_add_back(&a, ft_lst_new(j));
+		i++;
+	}
+	free(tmp);
+	return (a);
 }
 
 t_node	*ft_process(int argc, char **argv)
